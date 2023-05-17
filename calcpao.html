@@ -48,6 +48,7 @@
 	<button onclick="mostrarSoma()">Calcular</button>
 
 	<p id="resultado"></p>
+	<p id="peso_total" style="color: rgb(5, 77, 172);"></p>
 
 	<script>
 		function mostrarSoma() {
@@ -62,6 +63,7 @@
 			var pesosal = 0;
 			var pesototal = 0;
 			var texto = "";
+			var texto2 = "";
 			
 			pesofarinha = parseInt(pesolevain / (perlevain / 100));
 			pesoagua = parseInt(pesofarinha * (peragua / 100));
@@ -75,11 +77,12 @@
 			texto += "Levain......: " + pesolevain + "<br>";
 			texto += "&Aacute;gua........: " + pesoagua + "<br>";
 			texto += "Azeite......: " + pesoazeite + "<br>";
-			texto += "Sal.........: " + pesosal + "<br>";
+			texto += "Sal.........: " + pesosal ;
 			texto += "<hr>"
-			texto += "Peso total..: " + pesototal + "<br>";
+			texto2 += "Peso total..: " + pesototal + "<br>";
 			
 			document.getElementById("resultado").innerHTML = texto;
+			document.getElementById("peso_total").innerHTML = texto2;
 		}
 		
 		function limpar() {
