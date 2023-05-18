@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Qual &eacute; o mais barato?</title>
+	<style>
+		body {
+			font-family: Courier, monospace;
+			font-weight: bold;
+			font-size: 50px;
+		}
+		input {
+			font-size: 50px;
+			width: 200px;
+			text-align: right;
+		}
+		button {
+			font-size: 50px;
+		}
+	</style>
+</head>
+<body>
+
+	<span style="color: hotpink;">Qual &eacute; o mais barato?</span><br>
+	<hr>
+
+	<label for="lblqtde1">Qt1:</label>
+	<input type="number" id="qtde1" value="0" onclick="this.select();limpar()">
+	
+	<label for="lblqtde1">Pre&ccedil;o1:</label>
+	<input type="number" id="preco1" value="0" onclick="this.select();limpar()">
+
+	<br><br>
+
+	<label for="lblqtde2">Qt2:</label>
+	<input type="number" id="qtde2" value="0" onclick="this.select();limpar()">
+	
+	<label for="lblqtde2">Pre&ccedil;o2:</label>
+	<input type="number" id="preco2" value="0" onclick="this.select();limpar()">
+	<br><br>
+	
+	<button onclick="comparar()">Calcular</button>
+
+	<p id="resultado"></p>
+
+	<script>
+		function comparar() {
+			
+			var qtde1 = document.getElementById("qtde1").value;
+			var qtde2 = document.getElementById("qtde2").value;
+			var preco1 = document.getElementById("preco1").value;
+			var preco2 = document.getElementById("preco2").value;
+			var unit1 = 0.00;
+			var unit2 = 0.00;
+			
+			unit1 = preco1 / qtde1;
+			unit2 = preco2 / qtde2;
+
+			var texto = "";
+			
+			if (unit1 < unit2) {
+				texto += "&#128722; item 1";
+			} else {
+				texto += "&#128722; item 2";
+			}
+
+			texto += "<br><br>";
+			texto += "Vr item 1: " + unit1.toFixed(4) + "<br>";
+			texto += "Vr item 2: " + unit2.toFixed(4) + "<br>";
+			texto += "<br><small><small><small><small>by jdonizeters@gmail.com<br>";
+			
+			document.getElementById("resultado").innerHTML = texto;
+		}
+		
+		function limpar() {
+			document.getElementById("resultado").innerHTML = "";
+		}
+	</script>
+</body>
+</html>
