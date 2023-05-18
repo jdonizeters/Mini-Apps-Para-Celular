@@ -53,31 +53,35 @@
 			var unit2 = 0.00;
 			var equip1 = 0.00;
 			var equip2 = 0.00;
+			var texto = "";
 			
 			unit1 = preco1 / qtde1;
 			unit2 = preco2 / qtde2;
 
-			var texto = "";
-			
-			if (preco1 == preco2) {
-				texto += "&#128722; os pre&ccedil;os s&atilde;o iguais";
-			} else if (unit1 < unit2) {
-				texto += "&#128722; item 1";
-				equip1 = preco1;
-				equip2 = unit2 * qtde1;
-			} else {
-				texto += "&#128722; item 2";
-				equip1 = unit1 * qtde2;
-				equip2 = preco2;
-			}
+			if(unit1>0 && unit2>0){
 
-			texto += "<br><br>";
-			texto += "Equip1: " + equip1.toFixed(2) + "<br>";
-			texto += "Equip2: " + equip2.toFixed(2) + "<br><br>";
-			texto += "Vr unit.item 1: " + unit1.toFixed(4) + "<br>";
-			texto += "Vr unit.item 2: " + unit2.toFixed(4) + "<br>";
-			texto += "<br><small><small><small><small>by jdonizeters@gmail.com<br>";
-			document.getElementById("resultado").innerHTML = texto;
+				if (unit1 == unit2) {
+					texto += "&#128722; os pre&ccedil;os s&atilde;o iguais";
+				} else if (unit1 < unit2) {
+					texto += "&#128722; item 1";
+					equip1 = preco1;
+					equip2 = unit2 * qtde1;
+				} else {
+					texto += "&#128722; item 2";
+					equip1 = unit1 * qtde2;
+					equip2 = preco2;
+				}
+
+				texto += "<br><br>";
+				texto += "Equip1: " + equip1.toFixed(2) + "<br>";
+				texto += "Equip2: " + equip2.toFixed(2) + "<br><br>";
+				texto += "Vr unit.item 1: " + unit1.toFixed(4) + "<br>";
+				texto += "Vr unit.item 2: " + unit2.toFixed(4) + "<br>";
+				texto += "<small><small><small><small>by jdonizeters@gmail.com<br>";
+				document.getElementById("resultado").innerHTML = texto;
+
+			}
+			
 		}
 		
 		function limpar() {
